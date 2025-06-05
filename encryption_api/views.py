@@ -6,7 +6,7 @@ from django.conf import settings
 from .serializers import EncryptPasswordSerializer
 
 
-#  encryption
+
 def encryptFunction(param):
  
     user_secret_key = settings.FERNET_SECRET_KEY
@@ -15,7 +15,7 @@ def encryptFunction(param):
     return encrypted_password
 
 
-# API : post method
+
 class EncryptPasswordView(APIView):
     def post(self, request):
         serializer = EncryptPasswordSerializer(data=request.data)

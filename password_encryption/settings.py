@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w3b2xw+qfxx!9aohao6lc^8%e*0wq8rf@@z-9i!9w$d$nr-7u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,8 +42,7 @@ INSTALLED_APPS = [
 ]
 
 # Fernet secret key 
-FERNET_SECRET_KEY = "MEo1STZQRFNIOGFPVFJPWUhNTTVKQ3ZvUTZseWJsazI="
-
+FERNET_SECRET_KEY = os.environ.get("FERNET_SECRET_KEY")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
