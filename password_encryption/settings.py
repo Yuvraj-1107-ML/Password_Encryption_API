@@ -28,8 +28,15 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost','127.0.0.1','passwordencryptionapi-production.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS= ["https://passwordencryptionapi-production.up.railway.app/"]
+
+
+INTERNAL_IPS = (
+    '127.0.0.1',
+    'localhost:8000'
+)
 
 # Application definition
 
