@@ -13,9 +13,6 @@ def encryptFunction(param):
     encryptor = Fernet(user_secret_key)
     encrypted_password = encryptor.encrypt(param.encode("utf-8"))
     return encrypted_password
-
-
-
 class EncryptPasswordView(APIView):
     def post(self, request):
         serializer = EncryptPasswordSerializer(data=request.data)

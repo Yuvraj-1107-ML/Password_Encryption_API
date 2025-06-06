@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,13 +20,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+
+load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w3b2xw+qfxx!9aohao6lc^8%e*0wq8rf@@z-9i!9w$d$nr-7u+'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,8 +44,9 @@ INSTALLED_APPS = [
     'encryption_api',
 ]
 
+
 # Fernet secret key 
-FERNET_SECRET_KEY = os.environ.get("FERNET_SECRET_KEY")
+FERNET_SECRET_KEY= os.getenv("FERNET_SECRET_KEY")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
